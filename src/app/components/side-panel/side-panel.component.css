@@ -1,0 +1,84 @@
+aside {
+    height: 100%;
+    background-color: var(--bg-1);
+    overflow-y: scroll;
+    padding: 0 .5em 0 .5em;
+}
+
+.aside-content {
+    margin-top: 8vh;
+}
+
+    .option-container {
+        display: flex;
+        flex-direction: column;
+        margin: 1em 0;
+    }
+
+        .option-name {
+            margin-top: 2em;
+            font-size: 1.3em;
+        }
+
+        .longname {
+            margin: 1em 0 .5em 0;
+            font-size: 1em;
+        }
+
+        .input-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+            input {
+                width: inherit;
+                border: none;
+                height: 30px;
+                padding-left: 1em;
+                background: var(--bg-n);
+                outline: none;
+            }
+            
+            input:hover {
+                background: #fff;
+            }
+
+            button {
+                background-color: var(--bg-4);
+                color: var(--bg-3);
+                border: 1px solid var(--primary);
+                outline: none;
+                border-left: none;
+                border-bottom-right-radius: 100%;
+                border-top-right-radius: 100%;
+                font-size: smaller;
+            }
+            
+            button:hover {
+                border: none;
+                background-color: var(--primary);
+                color: #fff;
+                cursor: pointer;
+            }
+
+.aside-right {
+    background: none;
+}
+
+.aside-right .option-container{
+    margin: 0;
+}
+
+.prop-title {
+    margin-top: 12vh;
+    font-size: 1.3em;
+}
+
+p, span {
+    color: var(--bg-n);
+    font-size: 1em;
+}
+
+span {
+    color: var(--primary);
+}

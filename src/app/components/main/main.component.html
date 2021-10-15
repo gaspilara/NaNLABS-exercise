@@ -1,0 +1,19 @@
+<main>
+    <app-header></app-header>
+
+    <section class="main-section">
+        <app-side-panel class="left" [side]="'left'"></app-side-panel>
+
+        <section class="canvas-section">
+            <div class="img-container">
+                <app-image-canvas></app-image-canvas>
+            </div>
+            
+            <div class="control-container">
+                <app-history-control></app-history-control>
+                <app-bottom-panel></app-bottom-panel>
+            </div>
+        </section>
+        <app-side-panel class="right" [side]="'right'"></app-side-panel>
+    </section>
+</main>

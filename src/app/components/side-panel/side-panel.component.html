@@ -1,0 +1,35 @@
+<ng-container *ngIf="side == 'left'">
+    <aside>
+        <div class="aside-content">
+
+            <ng-container *ngFor="let option of options">
+                <div class="option-container">
+                    <label class="option-name">{{option.name | uppercase}}</label>
+
+                    <ng-container *ngFor="let propertie of option.properties">
+                        <label class="longname">{{propertie.longname}}</label>
+
+                        <div class="input-container">
+                            <input #propValue type="text" class="text-center" [placeholder]="propertie.ph">
+                            <button (click)="addPropertie(propertie, propValue.value); propValue.value = null"><i class="fas fa-check"></i></button>
+                        </div>
+
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </aside>
+</ng-container>
+
+<ng-container *ngIf="side == 'right'">
+    <aside class="aside-right">
+        <div class="aside-content">
+            <p class="prop-title">History</p>
+            <ng-container *ngFor="let prop of properties">
+                <div class="option-container">
+                    <p class="prop-name">{{prop.longname}} [<span class="value">{{prop.value}}</span>]</p>
+                </div>
+            </ng-container>
+        </div>
+    </aside>
+</ng-container>

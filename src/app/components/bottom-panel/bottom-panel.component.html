@@ -1,0 +1,14 @@
+<div class="bottom-panel">
+
+    <div class="carrousel-container">
+        <ng-container *ngFor="let img of images">
+            <div 
+                class="img-preview" 
+                [ngStyle]="{'background-image': 'url(' + img.url + '?q=2)'}"
+                (click)="selectImage(img)"
+            ></div>
+            <!-- <img [src]="img.url" alt="img.name" width="200" height="200"> -->
+        </ng-container>
+    </div>
+    
+</div>
