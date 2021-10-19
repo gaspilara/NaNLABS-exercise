@@ -26,15 +26,12 @@ export class HistoryControlComponent implements OnInit, OnChanges {
   }
 
   undoPropertie() {
-    this._properties = [...this.properties];
-
-    if (this.properties.length > this.propertiesService.DEFAULT_PROPS.length) {
+    this._properties = this.properties;
+    if (this.properties.length > 3) { // 3 = DEFAULT_PROPS.length;
       this._properties.pop();
     };
-
     this.imageService.setImageURL(this.imageSelect, this._properties);
-    this.properties = [...this._properties];
-
+    this.properties = this._properties;
   }
 
   redoPropertie() {
