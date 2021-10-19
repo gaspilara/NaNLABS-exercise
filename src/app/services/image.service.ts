@@ -11,6 +11,7 @@ export class ImageService {
 
   images: ImageModel[] = ImgixSamples;
   DEFAULT_IMAGE: ImageModel = this.images[Math.floor(Math.random() * this.images.length-1)];
+  properties: PropertieModel[];
 
   private imgSelected = new BehaviorSubject<ImageModel>(new ImageModel);
   img: Observable<ImageModel> = this.imgSelected.asObservable();
@@ -24,9 +25,14 @@ export class ImageService {
   }
   
   setImageURL(img: ImageModel, props: PropertieModel[]) {
+    this.properties = props;
+    this.buildURL(img, this.properties);
+  }
+  
+  buildURL(img: ImageModel, props: PropertieModel[]) {
     img.url = `${img.url}?`
     for (let prop of props) {
-      img.url += `${prop.name}=${prop.value}&`
+      img.url += `${prop.name}=${prop.value}&`;
     }
   }
   

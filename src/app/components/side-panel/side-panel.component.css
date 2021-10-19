@@ -82,3 +82,8 @@ p, span {
 span {
     color: var(--primary);
 }
+
+.warning { 
+    color: var(--secondary);
+    font-size: x-small;
+}

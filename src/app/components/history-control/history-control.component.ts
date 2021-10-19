@@ -10,12 +10,13 @@ import { PropertiesService } from 'src/app/services/properties.service';
   styleUrls: ['./history-control.component.css']
 })
 export class HistoryControlComponent implements OnInit, OnChanges {
-  
+
   properties: PropertieModel[];
+  _properties: PropertieModel[];
   imageSelect: ImageModel;
 
-  constructor(private imageService: ImageService, private propertiesService: PropertiesService) {}
-  
+  constructor(private imageService: ImageService, private propertiesService: PropertiesService) { }
+
   ngOnInit(): void {
     this.imageService.img.subscribe(img => this.imageSelect = img);
     this.propertiesService.props.subscribe(props => {
@@ -25,10 +26,15 @@ export class HistoryControlComponent implements OnInit, OnChanges {
   }
 
   undoPropertie() {
-    // let props = [...this.properties];
-    this.properties.slice()
-    console.log(this.properties)
-    this.imageService.setImageURL(this.imageSelect, this.properties);
+    this._properties = [...this.properties];
+
+    if (this.properties.length > this.propertiesService.DEFAULT_PROPS.length) {
+      this._properties.pop();
+    };
+
+    this.imageService.setImageURL(this.imageSelect, this._properties);
+    this.properties = [...this._properties];
+
   }
 
   redoPropertie() {

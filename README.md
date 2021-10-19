@@ -1,6 +1,6 @@
 # NaNLABS exercise
 
-# Up
+## Up
 
 ```bash
 npm install
